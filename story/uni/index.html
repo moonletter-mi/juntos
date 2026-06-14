@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Since That Day</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    background:linear-gradient(135deg,#ffe0ef,#fff0f6);
+}
+
+/* CONTAINER */
+.container{
+    max-width:850px;
+    margin:auto;
+    padding:40px 20px;
+}
+
+/* HERO IMAGE */
+.hero{
+    background:rgba(255,255,255,0.85);
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:0 15px 40px rgba(255,105,180,.15);
+    margin-bottom:10px;
+}
+
+.hero img{
+    width:100%;
+    height:420px;
+    object-fit:cover;
+}
+
+/* SUBTITLE UNDER IMAGE */
+.subtitle{
+    text-align:center;
+    font-size:13px;
+    color:#d87093;
+    margin-bottom:20px;
+    letter-spacing:1px;
+}
+
+/* MOMENT CARD */
+.moment{
+    background:rgba(255,255,255,0.85);
+    border-radius:18px;
+    padding:20px;
+    text-align:center;
+    margin-bottom:25px;
+    box-shadow:0 10px 25px rgba(255,105,180,.10);
+}
+
+.moment h3{
+    color:#c65f88;
+    margin-bottom:8px;
+}
+
+.moment p{
+    font-size:14px;
+    color:#777;
+    line-height:1.6;
+}
+
+/* COUNTER TITLE */
+.counter-title{
+    text-align:center;
+    font-size:18px;
+    color:#c65f88;
+    margin:25px 0 15px;
+    letter-spacing:2px;
+    animation:glow 2s infinite alternate;
+}
+
+@keyframes glow{
+    from{text-shadow:0 0 5px rgba(255,105,180,0.3);}
+    to{text-shadow:0 0 15px rgba(255,105,180,0.8);}
+}
+
+/* COUNTER GRID */
+.counter-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:15px;
+}
+
+/* BOX */
+.box{
+    background:white;
+    border-radius:15px;
+    padding:25px;
+    text-align:center;
+    box-shadow:0 10px 25px rgba(0,0,0,0.08);
+    font-weight:600;
+    transition:0.3s;
+}
+
+.box:hover{
+    transform:scale(1.03);
+}
+
+.box span{
+    display:block;
+    font-size:32px;
+    color:#ff5f9d;
+}
+
+/* NAV AT BOTTOM */
+.nav{
+    display:flex;
+    justify-content:flex-start;
+    margin-top:35px;
+}
+
+.btn{
+    text-decoration:none;
+    padding:12px 22px;
+    border-radius:999px;
+    font-weight:600;
+    transition:.3s;
+    font-size:14px;
+}
+
+.btn.prev{
+    background:rgba(255,126,179,0.15);
+    color:#c65f88;
+}
+
+.btn.prev:hover{
+    background:rgba(255,126,179,0.25);
+    transform:translateY(-3px);
+}
+
+/* FOOT NOTE */
+.footer-text{
+    text-align:center;
+    margin-top:30px;
+    font-size:13px;
+    color:#c65f88;
+    opacity:0.8;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- IMAGE -->
+    <div class="hero">
+        <img src="https://images.unsplash.com/photo-1529333166437-7750a6dd5a70">
+    </div>
+
+    <!-- SUBTITLE UNDER IMAGE -->
+    <div class="subtitle">
+        A moment that changed everything between us
+    </div>
+
+    <!-- MOMENT -->
+    <div class="moment">
+        <h3>Our Moment</h3>
+        <p>
+            Semua hal kecil yang kita jalani ternyata menjadi sesuatu yang paling berharga.
+            Tidak perlu banyak kata, cukup kita.
+        </p>
+    </div>
+
+    <!-- COUNTER TITLE -->
+    <div class="counter-title">TIME SPENT TOGETHER</div>
+
+    <!-- COUNTER -->
+    <div class="counter-grid">
+        <div class="box">
+            <span id="days">0</span>
+            <div>DAYS</div>
+        </div>
+
+        <div class="box">
+            <span id="hours">0</span>
+            <div>HOURS</div>
+        </div>
+
+        <div class="box">
+            <span id="minutes">0</span>
+            <div>MINUTES</div>
+        </div>
+
+        <div class="box">
+            <span id="seconds">0</span>
+            <div>SECONDS</div>
+        </div>
+    </div>
+
+    <!-- FOOTER TEXT -->
+    <div class="footer-text">
+        forever starts from 02.01.2025
+    </div>
+
+    <!-- NAV (ONLY PREV, AT BOTTOM) -->
+    <div class="nav">
+        <a href="usbegins.html" class="btn prev">← Prev</a>
+    </div>
+
+</div>
+
+<script>
+const startDate = new Date("2025-01-02T00:00:00");
+
+function updateCounter(){
+    const now = new Date();
+    let diff = Math.floor((now - startDate) / 1000);
+
+    let days = Math.floor(diff / (3600*24));
+    diff -= days * 3600*24;
+
+    let hours = Math.floor(diff / 3600);
+    diff -= hours * 3600;
+
+    let minutes = Math.floor(diff / 60);
+    let seconds = diff % 60;
+
+    document.getElementById("days").innerText = days;
+    document.getElementById("hours").innerText = hours;
+    document.getElementById("minutes").innerText = minutes;
+    document.getElementById("seconds").innerText = seconds;
+}
+
+setInterval(updateCounter,1000);
+updateCounter();
+</script>
+
+</body>
+</html>
