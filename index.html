@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Untuk Kita</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    overflow:hidden;
+}
+
+#loader{
+    position:fixed;
+    inset:0;
+    background:linear-gradient(135deg,#ffc8dd,#ffdce8,#fff0f5);
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    z-index:9999;
+    transition:1s ease;
+}
+
+.loader-heart{
+    font-size:70px;
+    animation:beat 1.2s infinite;
+}
+
+.loader-text{
+    margin-top:20px;
+    font-size:18px;
+    color:#d46a92;
+    letter-spacing:2px;
+}
+
+@keyframes beat{
+    0%,100%{transform:scale(1);}
+    50%{transform:scale(1.2);}
+}
+
+#main{
+    min-height:100vh;
+    background:linear-gradient(135deg,#ffd6e7,#ffe6f0,#fff4f8);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    position:relative;
+    opacity:0;
+    transition:1.5s;
+}
+
+.heart{
+    position:absolute;
+    color:rgba(255,255,255,.8);
+    animation:float 10s linear infinite;
+    user-select:none;
+}
+
+@keyframes float{
+    from{transform:translateY(100vh);opacity:0;}
+    20%{opacity:1;}
+    to{transform:translateY(-120px);opacity:0;}
+}
+
+.card{
+    width:90%;
+    max-width:700px;
+    padding:55px 40px;
+    background:rgba(255,255,255,.75);
+    backdrop-filter:blur(15px);
+    border-radius:30px;
+    text-align:center;
+    box-shadow:0 15px 35px rgba(255,105,180,.15);
+}
+
+.icon{
+    font-size:34px;
+    margin-bottom:15px;
+}
+
+.label{
+    letter-spacing:4px;
+    font-size:13px;
+    color:#d87093;
+    margin-bottom:15px;
+}
+
+h1{
+    font-family:'Playfair Display',serif;
+    color:#c65f88;
+    font-size:3rem;
+    margin-bottom:25px;
+}
+
+.message{
+    color:#666;
+    line-height:1.9;
+    font-size:1rem;
+    margin-bottom:40px;
+}
+
+.button{
+    display:inline-block;
+    text-decoration:none;
+    background:#ff7eb3;
+    color:#fff;
+    padding:15px 35px;
+    border-radius:999px;
+    font-weight:600;
+    transition:.3s;
+    box-shadow:0 10px 25px rgba(255,126,179,.35);
+}
+
+.button:hover{
+    background:#ff5f9d;
+    transform:translateY(-4px);
+}
+
+.footer{
+    margin-top:25px;
+    font-size:13px;
+    color:#b88899;
+}
+
+@media(max-width:600px){
+    h1{font-size:2.3rem;}
+    .card{padding:40px 25px;}
+}
+</style>
+</head>
+
+<body>
+
+<div id="loader">
+    <div class="loader-heart">💗</div>
+    <div class="loader-text">Memutar kembali kenangan...</div>
+</div>
+
+<div id="main">
+    <div class="heart" style="left:10%;font-size:20px;">❤</div>
+    <div class="heart" style="left:25%;font-size:28px;animation-delay:2s;">❤</div>
+    <div class="heart" style="left:40%;font-size:22px;animation-delay:4s;">❤</div>
+    <div class="heart" style="left:55%;font-size:18px;animation-delay:1s;">❤</div>
+    <div class="heart" style="left:70%;font-size:30px;animation-delay:3s;">❤</div>
+    <div class="heart" style="left:85%;font-size:22px;animation-delay:5s;">❤</div>
+
+    <div class="card">
+        <div class="icon">💖</div>
+        <div class="label">A LITTLE STORY OF US</div>
+        <h1>Untuk Kita</h1>
+
+        <div class="message">
+            Dari sebuah perkenalan sederhana,<br>
+            hingga menjadi seseorang yang begitu berarti.<br><br>
+
+            Website ini dibuat untuk menyimpan setiap tawa,<br>
+            cerita, perjalanan, dan kenangan kita bersama.<br><br>
+
+            Karena beberapa momen terlalu indah untuk dilupakan.
+        </div>
+
+        <a href="timeline.html" class="button">Buka Cerita Kita ❤️</a>
+
+        <div class="footer">dibuat dengan cinta</div>
+    </div>
+</div>
+
+<script>
+window.onload = () => {
+    setTimeout(() => {
+        const loader = document.getElementById('loader');
+        const main = document.getElementById('main');
+
+        loader.style.opacity = "0";
+
+        setTimeout(() => {
+            loader.style.display = "none";
+            main.style.opacity = "1";
+        }, 1000);
+    }, 3000);
+};
+</script>
+
+</body>
+</html>
